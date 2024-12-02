@@ -2,7 +2,6 @@ input = File.read("input.txt")
 
 reports = []
 safe_reports = []
-problem_dampener_result = []
 
 input.each_line do |report|
   reports << report.split.map(&:to_i)
@@ -25,6 +24,7 @@ def check_safety(report)
 end
 
 for i in 0..reports.length-1
+  problem_dampener_result = []
   for j in 0..reports[i].length
     temp_report = reports[i].dup
 
@@ -41,7 +41,6 @@ for i in 0..reports.length-1
   else
     safe_reports << false
   end
-  problem_dampener_result = []
 end
 
 puts safe_reports.count(true)
